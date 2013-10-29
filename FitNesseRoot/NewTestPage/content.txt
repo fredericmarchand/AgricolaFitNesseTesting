@@ -1,0 +1,15 @@
+!contents -R2 -g -p -f -h
+
+!***< Hidden
+!path bin
+*!
+
+!2 Test
+
+This is a column fixture.
+
+| !-fixtures.MyFixture-! |
+| a  | b  | sum() |
+| 1  | 1  | 2     |
+| 2  | 2  | 4     |
+| 1  | 0  | 1     |

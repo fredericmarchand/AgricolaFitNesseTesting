@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<testResults>
+  <FitNesseVersion>v20130530</FitNesseVersion>
+  <rootPath>TestReq006</rootPath>
+    <result>
+    <counts>
+      <right>2</right>
+      <wrong>1</wrong>
+      <ignores>0</ignores>
+      <exceptions>0</exceptions>
+    </counts>
+    <runTimeInMillis>2775</runTimeInMillis>
+    <content>&lt;div class="toc1"&gt;
+	&lt;div class="contents"&gt;
+		&lt;b&gt;Contents:&lt;/b&gt;
+		&lt;ul/&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;h2&gt;Testing that at harvest in a multiplayer game, the players pay 2 food per family member as per requirement 6&lt;/h2&gt;
+&lt;br/&gt;&lt;div class="collapsible invisible"&gt;&lt;ul&gt;&lt;li&gt;&lt;a href='#' class='expandall'&gt;Expand All&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href='#' class='collapseall'&gt;Collapse All&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+	&lt;p class="title"&gt;Hidden&lt;/p&gt;
+	&lt;div&gt;&lt;span class="meta"&gt;classpath: bin&lt;/span&gt;&lt;br/&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td colspan="4"&gt;fixtures.MyFixture&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;playerIndex&lt;/td&gt;
+		&lt;td&gt;playerFoodBeforeHarvest&lt;/td&gt;
+		&lt;td&gt;playerFamilyMembers&lt;/td&gt;
+		&lt;td&gt;playersEatFoodAtHarvestMultiplayer()&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;2&lt;/td&gt;
+		&lt;td&gt;10&lt;/td&gt;
+		&lt;td&gt;2&lt;/td&gt;
+		&lt;td class="pass"&gt;6&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;3&lt;/td&gt;
+		&lt;td&gt;20&lt;/td&gt;
+		&lt;td&gt;4&lt;/td&gt;
+		&lt;td class="pass"&gt;12&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;h2&gt;Testing that at harvest in a multiplayer game, the players pay 2 food or gets beggar cards for each missing food per family member as per requirement 6&lt;/h2&gt;
+&lt;br/&gt;Here we are missing two food so the score should go from 0 to -4.&lt;br/&gt;&lt;br/&gt;&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td colspan="4"&gt;fixtures.MyFixture&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;playerIndex&lt;/td&gt;
+		&lt;td&gt;playerFoodBeforeHarvest&lt;/td&gt;
+		&lt;td&gt;playerFamilyMembers&lt;/td&gt;
+		&lt;td&gt;playerScoreDeductByBeggingMultiplayer()&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;4&lt;/td&gt;
+		&lt;td&gt;2&lt;/td&gt;
+		&lt;td&gt;2&lt;/td&gt;
+		&lt;td class="fail"&gt;-4 &lt;span class="fit_label"&gt;expected&lt;/span&gt;&lt;hr&gt;-12 &lt;span class="fit_label"&gt;actual&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+</content>
+    <relativePageName>TestReq006</relativePageName>
+    
+    
+    
+  </result>
+  
+    <finalCounts>
+    <right>0</right>
+    <wrong>0</wrong>
+    <ignores>0</ignores>
+    <exceptions>0</exceptions>
+  </finalCounts>
+  <totalRunTimeInMillis>0</totalRunTimeInMillis>
+  
+</testResults>
+
