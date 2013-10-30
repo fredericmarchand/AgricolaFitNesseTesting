@@ -1,0 +1,14 @@
+!contents -R2 -g -p -f -h
+
+!***< Hidden
+!path bin
+*!
+
+!2 Test to ensure that stables are paid for at the right cost.
+
+| !-fixtures.MyFixture-!  |
+| farmX | farmY | playerWood | stableCost | playerBuildStableCheckRemainingWood() | playerBuildStableCheck() |
+|  3    |  5    | 1          | 1          |0                                      |        s               |
+|  3    |  5    | 2          | 2          |0                                      |        s               |
+|  3    |  5    | 3          | 1          |2                                      |        s               |
+|  3    |  5    | 0          | 1          |0                                      |        e               |
