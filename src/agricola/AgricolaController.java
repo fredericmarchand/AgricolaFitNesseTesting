@@ -41,8 +41,14 @@ public class AgricolaController extends JFrame implements MouseListener,
 	public boolean well, clay_oven, stone_oven, wood_converter, clay_converter,
 			reed_converter;
 
+	public boolean testing;
+	public int improveChoice;
+	
 	//constructor used for tests
 	public AgricolaController(int numplayers) {
+		testing = true;
+		improveChoice = 0;
+		
 		num_players = 0;
 		fireplace_num = 2;
 		hearth_num = 2;
@@ -395,6 +401,7 @@ public class AgricolaController extends JFrame implements MouseListener,
 	}
 
 	public AgricolaController() {
+		testing = false;
 		num_players = 0;
 		fireplace_num = 2;
 		hearth_num = 2;
@@ -1595,15 +1602,22 @@ public class AgricolaController extends JFrame implements MouseListener,
 						"Basketmaker", "Well", "Cancel" };
 				int selectedValue = 0;
 
+				
+				
 				while (selectedValue != 8) {
-					selectedValue = JOptionPane
+					if (testing){
+						selectedValue = improveChoice;
+					}
+					else{
+						selectedValue = JOptionPane
 							.showOptionDialog(
 									null,
 									"Possible Improvements:\nFireplace: Costs 2 clay (3 clay if first fireplace is taken), worth 1 point for end game and the ability to convert cattle to 3 food and every other food resource to 2 food (grain requires bake bread action)\nCooking Hearth: Costs 4/5 clay or a fireplace, gives 1 point and converts sheeps to 2 food, vegetables, boar, and grain to 3 food, and cattle to 4 food.  Grain must use bake bread action\nClay Oven: costs 3 clay and 1 stone, gives 2 points and converts exactly 1 grain into 5 food when baking bread.  Can bake immediately after purchasing\nStone Oven: Costs 3 stone and 1clay, converts up to 2 grain for 4 food each when baking bread.  Can bake immediately after purchasing\nJoinery: Costs 2 wood and 2 stone, gives 2 points + 1/2/3 points for 3/5/7 wood at games end.  Each harvest, can convert exactly 1 wood into 2 food\nPottery: Costs 2 clay and 2 stone, gives 2 points + 1/2/3 points for 3/5/7 wood at games end.  Each harvest, can convert exactly 1 clay into 2 food\nBasketmaker's Workshop: Costs 2 reed and 2 stone, gives 2 points + 1/2/3 points for 2/4/5 wood at games end.Each harvest, can convert exactly 1 reed into 3 food\nWell: Costs 1 wood, 3 stone, gives 4 points and 1 food at the start of the next 5 rounds\n",
 									"Choose one", JOptionPane.DEFAULT_OPTION,
 									JOptionPane.PLAIN_MESSAGE, null,
 									possibleValues, possibleValues[0]);
-
+					}
+					
 					if (selectedValue == 0) {
 						if (fireplace_num == 2) {
 							if (players[cur_player].getClay() > 1) {

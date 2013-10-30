@@ -29,6 +29,26 @@ public class MyFixture extends ColumnFixture {
 	
 	public int stableCost;
 	
+	public int playersClayBeforeFireplace;
+	
+	public int playerClayBeforeOven;
+	public int playerStoneBeforeOven;
+	public boolean clayOrStone;
+	
+	public int playerStoneBeforeJoinery;
+	public int playerWoodBeforeJoinery;
+	public boolean woodOrStone;
+	
+	public int playerClayBeforePottery;
+	public int playerStoneBeforePottery;
+	
+	public int playerReedBeforeBasket;
+	public int playerStoneBeforeBasket;
+	public boolean reedOrStone;
+	
+	public int playerWoodBeforeWell;
+	public int playerStoneBeforeWell;
+	
 	// random test to try fitnesse
 	public int sum() {
 		int result;
@@ -349,4 +369,116 @@ public class MyFixture extends ColumnFixture {
 		}
 		return fences;
 	}
+	
+	// r-016
+	//keep for last
+	
+	
+	// r-017
+	public int getPlayersClayAfterBuildingFireplaces() {
+		AgricolaController ac =  new AgricolaController(2);
+		ac.improveChoice = 0;
+		ac.players[0].clay = playersClayBeforeFireplace;
+		ac.players[1].clay = playersClayBeforeFireplace;
+		ac.turn = 5;
+		ac.update(false);
+		ac.cur_player = 0;
+		ac.b_improve.doClick();
+		ac.b_wood.doClick();
+		ac.b_reed.doClick();
+		ac.b_improve.doClick();
+		return ac.players[playerIndex].getClay();
+	}
+	
+	
+	// r-021
+	public int playerBuildClayOven() {
+		AgricolaController ac =  new AgricolaController(1);
+		ac.improveChoice = 2; //clay oven
+		ac.players[0].clay = playerClayBeforeOven;
+		ac.players[0].stone = playerStoneBeforeOven;
+		ac.turn = 5;
+		ac.update(false);
+		ac.cur_player = 0;
+		ac.b_improve.doClick();
+		if (clayOrStone)
+			return ac.players[0].getClay();
+		return ac.players[0].getStone();
+	}
+	
+	// r-023
+	public int playerBuildStoneOven() {
+		AgricolaController ac =  new AgricolaController(1);
+		ac.improveChoice = 3; //stone oven
+		ac.players[0].clay = playerClayBeforeOven;
+		ac.players[0].stone = playerStoneBeforeOven;
+		ac.turn = 5;
+		ac.update(false);
+		ac.cur_player = 0;
+		ac.b_improve.doClick();
+		if (clayOrStone)
+			return ac.players[0].getClay();
+		return ac.players[0].getStone();
+	}
+	
+	// r-025
+	public int playerBuildJoinery() {
+		AgricolaController ac =  new AgricolaController(1);
+		ac.improveChoice = 4; //joinery
+		ac.players[0].wood = playerWoodBeforeJoinery;
+		ac.players[0].stone = playerStoneBeforeJoinery;
+		ac.turn = 5;
+		ac.update(false);
+		ac.cur_player = 0;
+		ac.b_improve.doClick();
+		if (woodOrStone)
+			return ac.players[0].getWood();
+		return ac.players[0].getStone();
+	}
+	
+	// r-027
+	public int playerBuildPottery() {
+		AgricolaController ac =  new AgricolaController(1);
+		ac.improveChoice = 5; //pottery
+		ac.players[0].clay = playerClayBeforePottery;
+		ac.players[0].stone = playerStoneBeforePottery;
+		ac.turn = 5;
+		ac.update(false);
+		ac.cur_player = 0;
+		ac.b_improve.doClick();
+		if (clayOrStone)
+			return ac.players[0].getClay();
+		return ac.players[0].getStone();
+	}
+	
+	// r-029
+	public int playerBuildBasketmakersWorkshop() {
+		AgricolaController ac =  new AgricolaController(1);
+		ac.improveChoice = 6; //basketmaker workshop
+		ac.players[0].reed = playerReedBeforeBasket;
+		ac.players[0].stone = playerStoneBeforeBasket;
+		ac.turn = 5;
+		ac.update(false);
+		ac.cur_player = 0;
+		ac.b_improve.doClick();
+		if (reedOrStone)
+			return ac.players[0].getReed();
+		return ac.players[0].getStone();
+	}
+	
+	// r-031
+		public int playerBuildWell() {
+			AgricolaController ac =  new AgricolaController(1);
+			ac.improveChoice = 7; //well
+			ac.players[0].wood = playerWoodBeforeWell;
+			ac.players[0].stone = playerStoneBeforeWell;
+			ac.turn = 5;
+			ac.update(false);
+			ac.cur_player = 0;
+			ac.b_improve.doClick();
+			if (woodOrStone)
+				return ac.players[0].getWood();
+			return ac.players[0].getStone();
+		}
+	
 }

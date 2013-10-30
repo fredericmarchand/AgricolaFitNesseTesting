@@ -1,7 +1,7 @@
 !3 !-fit:fit.FitServer-!
-|'''Date: '''| 3:32:42 PM (EDT) on Tuesday, October 29, 2013 |
+|'''Date: '''| 11:43:04 PM (EDT) on Tuesday, October 29, 2013 |
 |'''Test Page: '''|.TestReq001|
-|'''Command: '''| !-java -cp .\fitnesse-standalone.jar;bin fit.FitServer Fred-RIG 8080 4-! |
+|'''Command: '''| !-java -cp .\fitnesse-standalone.jar;bin fit.FitServer Fred-RIG 8080 6-! |
 |'''Exit code: '''| 5 |
-|'''Time elapsed: '''| 1.007 seconds |
+|'''Time elapsed: '''| 1.069 seconds |
 
