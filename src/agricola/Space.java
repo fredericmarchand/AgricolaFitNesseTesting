@@ -10,7 +10,7 @@ package agricola;
 public class Space {
 	private boolean square;
 	private boolean valid;
-	private char type;
+	public char type;
 	private int stack;
 
 	public Space() {

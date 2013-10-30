@@ -13,7 +13,7 @@ public class Player {
 	public int food, reed, wood, clay, stone, grain, vege, family, rooms,
 			activefam, sheep, cattle, boar, field, empty, pasture, stable,
 			score, space, wellcounter;
-	private char roomtype;
+	public char roomtype;
 	private boolean hasFireplace, hasHearth, hasCOven, hasSOven, hasJoinery,
 			hasPottery, hasBasket, hasFireplace2;
 

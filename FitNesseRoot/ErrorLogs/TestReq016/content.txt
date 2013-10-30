@@ -1,0 +1,43 @@
+!3 !-fit:fit.FitServer-!
+|'''Date: '''| 3:18:07 PM (EDT) on Wednesday, October 30, 2013 |
+|'''Test Page: '''|.TestReq016|
+|'''Command: '''| !-java -cp .\fitnesse-standalone.jar;bin fit.FitServer Fred-RIG 8080 8-! |
+|'''Exit code: '''| 3 |
+|'''Time elapsed: '''| 1.118 seconds |
+
+----
+'''Standard Output:'''
+{{{ fields: 2
+ pastures: 2
+ vegetables: 1
+sheeps: 4
+boars: 1
+cattle: 2
+empty spots: 13
+stables: 2
+roomtype: w
+rooms: 5
+family: 2
+fields: 4
+ pastures: 3
+ vegetables: 3
+sheeps: 2
+boars: 3
+cattle: 1
+empty spots: 13
+stables: 3
+roomtype: w
+rooms: 6
+family: 2
+fields: 5
+ pastures: 4
+ vegetables: 4
+sheeps: 8
+boars: 7
+cattle: 6
+empty spots: 13
+stables: 4
+roomtype: w
+rooms: 7
+family: 2
+ }}}

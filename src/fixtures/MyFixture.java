@@ -49,6 +49,23 @@ public class MyFixture extends ColumnFixture {
 	public int playerWoodBeforeWell;
 	public int playerStoneBeforeWell;
 	
+	public int grain;
+	public int vege;
+	public int rooms;
+	public int sheep;
+	public int cattle;
+	public int boar;
+	public int fields;
+	public int pastures;
+	public int stables;
+	
+	public int woodBefore;
+	public int clayBefore;
+	public int stoneBefore;
+	public int reedBefore;
+	public boolean woodOrReed, clayOrReed, stoneOrReed;
+	public boolean whichOption;
+	
 	// random test to try fitnesse
 	public int sum() {
 		int result;
@@ -235,7 +252,85 @@ public class MyFixture extends ColumnFixture {
 	}
 	
 	// r-011
-	//@TODO last
+	public int buildWoodRoomCheckCost() {
+		AgricolaController ac = new AgricolaController(1);
+		ac.players[0].wood = woodBefore;
+		ac.players[0].reed = reedBefore;
+		ac.turn = 13;
+		ac.update(false);
+		
+		ac.wRoom = true;
+		ac.b[1][1].doClick();
+		
+		if (woodOrReed)
+			return ac.players[0].getWood();
+		return ac.players[0].getReed();
+	}
+	// r-011
+	public int buildClayRoomCheckCost() {
+		AgricolaController ac = new AgricolaController(1);
+		ac.players[0].clay = clayBefore;
+		ac.players[0].reed = reedBefore;
+		ac.turn = 13;
+		ac.players[0].roomtype = 'c';
+		ac.farm[0][3][1].type = 'c';
+		ac.update(false);
+		
+		ac.wRoom = true;
+		ac.b[1][1].doClick();
+		
+		if (clayOrReed)
+			return ac.players[0].getClay();
+		return ac.players[0].getReed();
+	}
+	// r-011
+	public int buildStoneRoomCheckCost() {
+		AgricolaController ac = new AgricolaController(1);
+		ac.players[0].stone = stoneBefore;
+		ac.players[0].reed = reedBefore;
+		ac.turn = 13;
+		ac.players[0].roomtype = 't';
+		ac.farm[0][3][1].type = 't';
+		ac.update(false);
+		
+		ac.wRoom = true;
+		ac.b[1][1].doClick();
+		
+		if (stoneOrReed)
+			return ac.players[0].getStone();
+		return ac.players[0].getReed();
+	}
+	// r-011
+	public int buildFenceCheckCost() {
+		AgricolaController ac = new AgricolaController(1);
+		ac.players[0].wood = woodBefore;
+		ac.players[0].reed = reedBefore;
+		ac.turn = 13;
+		ac.update(false);
+		
+		ac.wFences = true;
+		ac.b[0][1].doClick();
+		ac.b[1][0].doClick();
+		ac.b[2][1].doClick();
+		ac.b[1][2].doClick();
+		return ac.players[0].getWood();
+	}
+	// r-011
+	public int buildStableCheckCost() {
+		AgricolaController ac = new AgricolaController(1);
+		ac.players[0].wood = woodBefore;
+		ac.turn = 13;
+		ac.update(false);
+		if (whichOption){
+			ac.wStable = true;
+		}
+		else {
+			ac.wStableRoom = true;
+		}
+		ac.b[1][1].doClick();
+		
+		return ac.players[0].getWood();
+	}
 	
 	// r-012
 	public char playerBuildRoomCheck() {
@@ -371,7 +466,24 @@ public class MyFixture extends ColumnFixture {
 	}
 	
 	// r-016
-	//keep for last
+	public int playerCalcScore() {
+		AgricolaController ac = new AgricolaController(1);
+		
+		ac.players[0].addGrain(grain);
+		for (int i = 0; i < vege; ++i)
+			ac.players[0].addVege();
+		ac.players[0].addRooms(rooms);
+		ac.players[0].addSheep(sheep);
+		ac.players[0].addCattle(cattle);
+		ac.players[0].addBoar(boar);
+		for (int i = 0; i < fields; ++i)
+			ac.players[0].addField();
+		ac.players[0].addPasture(pastures);
+		ac.players[0].addStable(stables);
+		ac.players[0].calcScore();
+	
+		return ac.players[0].getScore();
+	}
 	
 	
 	// r-017
