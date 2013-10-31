@@ -42,13 +42,17 @@ public class AgricolaController extends JFrame implements MouseListener,
 			reed_converter;
 
 	public boolean testing;
-	public int improveChoice;
-	
-	//constructor used for tests
+	public int improveChoice, payChoice, convAnimal;
+	public boolean improveTesting;
+	public boolean cookingTesting;
+	public boolean breadTesting;
+
+	// constructor used for tests
 	public AgricolaController(int numplayers) {
 		testing = true;
+		improveTesting = cookingTesting = false;
 		improveChoice = 0;
-		
+
 		num_players = 0;
 		fireplace_num = 2;
 		hearth_num = 2;
@@ -66,7 +70,7 @@ public class AgricolaController extends JFrame implements MouseListener,
 
 		view = new FarmView();
 
-		for (int i = 0; i < numplayers; ++i){
+		for (int i = 0; i < numplayers; ++i) {
 			num_players++;
 			players[i] = new Player();
 		}
@@ -1343,7 +1347,10 @@ public class AgricolaController extends JFrame implements MouseListener,
 
 				while (selectedValue == 1) {
 
-					selectedValue = JOptionPane.showOptionDialog(null,
+					if (breadTesting)
+						selectedValue = convAnimal;
+					else
+						selectedValue = JOptionPane.showOptionDialog(null,
 							"Choose Action", "Choose one",
 							JOptionPane.DEFAULT_OPTION,
 							JOptionPane.PLAIN_MESSAGE, null, stabbread,
@@ -1360,14 +1367,17 @@ public class AgricolaController extends JFrame implements MouseListener,
 								tempCOven--;
 								players[cur_player].addFood(5);
 								players[cur_player].addGrain(-1);
+								if (breadTesting) convAnimal = 2;
 							} else if (players[cur_player].hasSOven()
 									&& tempSOven > 0) {
 								tempSOven--;
 								players[cur_player].addFood(4);
 								players[cur_player].addGrain(-1);
+								if (breadTesting && players[cur_player].getGrain() == 0) convAnimal = 2;
 							} else if (players[cur_player].hasHearth()) {
 								players[cur_player].addFood(3);
 								players[cur_player].addGrain(-1);
+								if (breadTesting && players[cur_player].getGrain() == 0) convAnimal = 2;
 							} else if (players[cur_player].hasFireplace()) {
 								players[cur_player].addFood(2);
 								players[cur_player].addGrain(-1);
@@ -1383,6 +1393,8 @@ public class AgricolaController extends JFrame implements MouseListener,
 									"You do not have grain to bake!",
 									"insufficient resources",
 									JOptionPane.ERROR_MESSAGE);
+						
+						
 
 					} else {
 						b_stable.setVisible(false);
@@ -1602,22 +1614,20 @@ public class AgricolaController extends JFrame implements MouseListener,
 						"Basketmaker", "Well", "Cancel" };
 				int selectedValue = 0;
 
-				
-				
 				while (selectedValue != 8) {
-					if (testing){
+					if (testing) {
 						selectedValue = improveChoice;
-					}
-					else{
+					} else {
 						selectedValue = JOptionPane
-							.showOptionDialog(
-									null,
-									"Possible Improvements:\nFireplace: Costs 2 clay (3 clay if first fireplace is taken), worth 1 point for end game and the ability to convert cattle to 3 food and every other food resource to 2 food (grain requires bake bread action)\nCooking Hearth: Costs 4/5 clay or a fireplace, gives 1 point and converts sheeps to 2 food, vegetables, boar, and grain to 3 food, and cattle to 4 food.  Grain must use bake bread action\nClay Oven: costs 3 clay and 1 stone, gives 2 points and converts exactly 1 grain into 5 food when baking bread.  Can bake immediately after purchasing\nStone Oven: Costs 3 stone and 1clay, converts up to 2 grain for 4 food each when baking bread.  Can bake immediately after purchasing\nJoinery: Costs 2 wood and 2 stone, gives 2 points + 1/2/3 points for 3/5/7 wood at games end.  Each harvest, can convert exactly 1 wood into 2 food\nPottery: Costs 2 clay and 2 stone, gives 2 points + 1/2/3 points for 3/5/7 wood at games end.  Each harvest, can convert exactly 1 clay into 2 food\nBasketmaker's Workshop: Costs 2 reed and 2 stone, gives 2 points + 1/2/3 points for 2/4/5 wood at games end.Each harvest, can convert exactly 1 reed into 3 food\nWell: Costs 1 wood, 3 stone, gives 4 points and 1 food at the start of the next 5 rounds\n",
-									"Choose one", JOptionPane.DEFAULT_OPTION,
-									JOptionPane.PLAIN_MESSAGE, null,
-									possibleValues, possibleValues[0]);
+								.showOptionDialog(
+										null,
+										"Possible Improvements:\nFireplace: Costs 2 clay (3 clay if first fireplace is taken), worth 1 point for end game and the ability to convert cattle to 3 food and every other food resource to 2 food (grain requires bake bread action)\nCooking Hearth: Costs 4/5 clay or a fireplace, gives 1 point and converts sheeps to 2 food, vegetables, boar, and grain to 3 food, and cattle to 4 food.  Grain must use bake bread action\nClay Oven: costs 3 clay and 1 stone, gives 2 points and converts exactly 1 grain into 5 food when baking bread.  Can bake immediately after purchasing\nStone Oven: Costs 3 stone and 1clay, converts up to 2 grain for 4 food each when baking bread.  Can bake immediately after purchasing\nJoinery: Costs 2 wood and 2 stone, gives 2 points + 1/2/3 points for 3/5/7 wood at games end.  Each harvest, can convert exactly 1 wood into 2 food\nPottery: Costs 2 clay and 2 stone, gives 2 points + 1/2/3 points for 3/5/7 wood at games end.  Each harvest, can convert exactly 1 clay into 2 food\nBasketmaker's Workshop: Costs 2 reed and 2 stone, gives 2 points + 1/2/3 points for 2/4/5 wood at games end.Each harvest, can convert exactly 1 reed into 3 food\nWell: Costs 1 wood, 3 stone, gives 4 points and 1 food at the start of the next 5 rounds\n",
+										"Choose one",
+										JOptionPane.DEFAULT_OPTION,
+										JOptionPane.PLAIN_MESSAGE, null,
+										possibleValues, possibleValues[0]);
 					}
-					
+
 					if (selectedValue == 0) {
 						if (fireplace_num == 2) {
 							if (players[cur_player].getClay() > 1) {
@@ -1668,12 +1678,16 @@ public class AgricolaController extends JFrame implements MouseListener,
 
 							Object[] payingopt = { "Buy with Clay",
 									"Buy with Fireplace" };
-
-							int payingVal = JOptionPane.showOptionDialog(null,
-									"Choose Method of Payment", "Choose one",
-									JOptionPane.DEFAULT_OPTION,
-									JOptionPane.PLAIN_MESSAGE, null, payingopt,
-									payingopt[0]);
+							int payingVal;
+							if (testing) {
+								payingVal = payChoice;
+							} else
+								payingVal = JOptionPane.showOptionDialog(null,
+										"Choose Method of Payment",
+										"Choose one",
+										JOptionPane.DEFAULT_OPTION,
+										JOptionPane.PLAIN_MESSAGE, null,
+										payingopt, payingopt[0]);
 
 							if (payingVal == 0) {
 								if (hearth_num == 2) {
@@ -3792,7 +3806,10 @@ public class AgricolaController extends JFrame implements MouseListener,
 				if (players[cur_player].isHuman()) {
 
 					// animals run off if the player has no space in their farm
-					selectedVal = JOptionPane
+					if (cookingTesting)
+						selectedVal = convAnimal;
+					else
+						selectedVal = JOptionPane
 							.showOptionDialog(
 									null,
 									"You have more animals than you have space, you must convert them (if you have no oven they will simply run away immediately)",
@@ -3934,26 +3951,32 @@ public class AgricolaController extends JFrame implements MouseListener,
 								playerupdate();
 								updateFarm(false);
 								if (num_players == 1) {
-									selectedValue = JOptionPane
-											.showOptionDialog(
-													null,
-													"Choose actions before Harvest, 3 food per family member (or 1 per newborn) is required to not receive a score deduction.\nWithout baking bread, grain always converts to 1 food.  \nWithout a fireplace or cooking hearth, you may only convert vegetables at 1 food each, animals must be converted with a fireplace or cooking hearth.  \nWood, Clay, and Reed can only be converted with their specific improvmenet",
-													"Harvest",
-													JOptionPane.DEFAULT_OPTION,
-													JOptionPane.PLAIN_MESSAGE,
-													null, harvestopt,
-													harvestopt[0]);
+									if (improveTesting)
+										selectedValue = improveChoice;
+									else
+										selectedValue = JOptionPane
+												.showOptionDialog(
+														null,
+														"Choose actions before Harvest, 3 food per family member (or 1 per newborn) is required to not receive a score deduction.\nWithout baking bread, grain always converts to 1 food.  \nWithout a fireplace or cooking hearth, you may only convert vegetables at 1 food each, animals must be converted with a fireplace or cooking hearth.  \nWood, Clay, and Reed can only be converted with their specific improvmenet",
+														"Harvest",
+														JOptionPane.DEFAULT_OPTION,
+														JOptionPane.PLAIN_MESSAGE,
+														null, harvestopt,
+														harvestopt[0]);
 								} else {
 
-									selectedValue = JOptionPane
-											.showOptionDialog(
-													null,
-													"Choose actions before Harvest, 2 food per family member (or 1 per newborn) is required to not receive a score deduction.\nWithout baking bread, grain always converts to 1 food.  \nWithout a fireplace or cooking hearth, you may only convert vegetables at 1 food each, animals must be converted with a fireplace or cooking hearth.  \nWood, Clay, and Reed can only be converted with their specific improvmenet",
-													"Harvest",
-													JOptionPane.DEFAULT_OPTION,
-													JOptionPane.PLAIN_MESSAGE,
-													null, harvestopt,
-													harvestopt[0]);
+									if (improveTesting)
+										selectedValue = improveChoice;
+									else
+										selectedValue = JOptionPane
+												.showOptionDialog(
+														null,
+														"Choose actions before Harvest, 2 food per family member (or 1 per newborn) is required to not receive a score deduction.\nWithout baking bread, grain always converts to 1 food.  \nWithout a fireplace or cooking hearth, you may only convert vegetables at 1 food each, animals must be converted with a fireplace or cooking hearth.  \nWood, Clay, and Reed can only be converted with their specific improvmenet",
+														"Harvest",
+														JOptionPane.DEFAULT_OPTION,
+														JOptionPane.PLAIN_MESSAGE,
+														null, harvestopt,
+														harvestopt[0]);
 								}
 								if (selectedValue == 0
 										&& players[p].getGrain() > 0) {
@@ -3962,8 +3985,10 @@ public class AgricolaController extends JFrame implements MouseListener,
 								} else if (selectedValue == 1
 										&& players[p].getVege() > 0) {
 									players[p].decVege();
-									if (players[p].hasHearth())
+									if (players[p].hasHearth()) {
 										players[p].addFood(3);
+										if (improveTesting && players[p].getVege() == 0) improveChoice = 8; 
+									}
 
 									else if (players[p].hasFireplace())
 										players[p].addFood(2);
@@ -4037,6 +4062,8 @@ public class AgricolaController extends JFrame implements MouseListener,
 									if (players[p].hasJoinery()) {
 										players[p].addWood(-1);
 										players[p].addFood(2);
+										if (improveTesting)
+											selectedValue = 8;
 									} else
 										JOptionPane.showMessageDialog(null,
 												"You do not have a Joinery!",
@@ -4047,6 +4074,8 @@ public class AgricolaController extends JFrame implements MouseListener,
 									if (players[p].hasPottery()) {
 										players[p].addClay(-1);
 										players[p].addFood(2);
+										if (improveTesting)
+											selectedValue = 8;
 									} else
 										JOptionPane.showMessageDialog(null,
 												"You do not have a Pottery!",
@@ -4057,6 +4086,8 @@ public class AgricolaController extends JFrame implements MouseListener,
 									if (players[p].hasBasket()) {
 										players[p].addReed(-1);
 										players[p].addFood(3);
+										if (improveTesting)
+											selectedValue = 8;
 									} else
 										JOptionPane
 												.showMessageDialog(
@@ -6464,5 +6495,5 @@ public class AgricolaController extends JFrame implements MouseListener,
 	public Player getPlayer(int i) {
 		return players[i];
 	}
-	
+
 }
