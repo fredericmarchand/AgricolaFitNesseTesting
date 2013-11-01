@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<testResults>
+  <FitNesseVersion>v20130530</FitNesseVersion>
+  <rootPath>TestReq012</rootPath>
+    <result>
+    <counts>
+      <right>11</right>
+      <wrong>1</wrong>
+      <ignores>0</ignores>
+      <exceptions>0</exceptions>
+    </counts>
+    <runTimeInMillis>2</runTimeInMillis>
+    <content>&lt;div class="toc1"&gt;
+	&lt;div class="contents"&gt;
+		&lt;b&gt;Contents:&lt;/b&gt;
+		&lt;ul/&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;div class="collapsible invisible"&gt;&lt;ul&gt;&lt;li&gt;&lt;a href='#' class='expandall'&gt;Expand All&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href='#' class='collapseall'&gt;Collapse All&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+	&lt;p class="title"&gt;Hidden&lt;/p&gt;
+	&lt;div&gt;&lt;span class="meta"&gt;classpath: bin&lt;/span&gt;&lt;br/&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;h2&gt;Test to ensure that the right price is paid for building rooms&lt;/h2&gt;
+&lt;br/&gt;&lt;h2&gt;**************Always press "Done action" if its not available press "Build room" and if build room doesnt work press "Build Stable"&lt;/h2&gt;
+&lt;br/&gt;&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td colspan="7"&gt;fixtures.MyFixture&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;farmX&lt;/td&gt;
+		&lt;td&gt;farmY&lt;/td&gt;
+		&lt;td&gt;playerWood&lt;/td&gt;
+		&lt;td&gt;playerReed&lt;/td&gt;
+		&lt;td&gt;getFirstPlayerWood()&lt;/td&gt;
+		&lt;td&gt;getFirstPlayerReed()&lt;/td&gt;
+		&lt;td&gt;playerBuildRoomCheck()&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;3&lt;/td&gt;
+		&lt;td&gt;5&lt;/td&gt;
+		&lt;td&gt;6&lt;/td&gt;
+		&lt;td&gt;3&lt;/td&gt;
+		&lt;td class="pass"&gt;1&lt;/td&gt;
+		&lt;td class="pass"&gt;1&lt;/td&gt;
+		&lt;td class="pass"&gt;w&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;3&lt;/td&gt;
+		&lt;td&gt;5&lt;/td&gt;
+		&lt;td&gt;5&lt;/td&gt;
+		&lt;td&gt;5&lt;/td&gt;
+		&lt;td class="pass"&gt;0&lt;/td&gt;
+		&lt;td class="pass"&gt;3&lt;/td&gt;
+		&lt;td class="pass"&gt;w&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;3&lt;/td&gt;
+		&lt;td&gt;5&lt;/td&gt;
+		&lt;td&gt;4&lt;/td&gt;
+		&lt;td&gt;5&lt;/td&gt;
+		&lt;td class="pass"&gt;4&lt;/td&gt;
+		&lt;td class="pass"&gt;5&lt;/td&gt;
+		&lt;td class="fail"&gt;s &lt;span class="fit_label"&gt;expected&lt;/span&gt;&lt;hr&gt;e &lt;span class="fit_label"&gt;actual&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;3&lt;/td&gt;
+		&lt;td&gt;5&lt;/td&gt;
+		&lt;td&gt;0&lt;/td&gt;
+		&lt;td&gt;5&lt;/td&gt;
+		&lt;td class="pass"&gt;0&lt;/td&gt;
+		&lt;td class="pass"&gt;5&lt;/td&gt;
+		&lt;td class="pass"&gt;e&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+</content>
+    <relativePageName>TestReq012</relativePageName>
+    
+    
+    
+  </result>
+  
+    <finalCounts>
+    <right>0</right>
+    <wrong>0</wrong>
+    <ignores>0</ignores>
+    <exceptions>0</exceptions>
+  </finalCounts>
+  <totalRunTimeInMillis>0</totalRunTimeInMillis>
+  
+</testResults>
+

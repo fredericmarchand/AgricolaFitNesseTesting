@@ -348,7 +348,7 @@ public class MyFixture extends ColumnFixture {
 		ac.players[0].wood = playerWood;
 		ac.players[0].reed = playerReed;
 		ac.update(false);
-		ac.b_room.doClick();
+		ac.wRoom = true;
 
 		ac.b[farmX][farmY].doClick();
 		return ac.farm[0][farmX][farmY].getType();
@@ -360,7 +360,7 @@ public class MyFixture extends ColumnFixture {
 		ac.players[0].wood = playerWood;
 		ac.players[0].reed = playerReed;
 		ac.update(false);
-		ac.b_room.doClick();
+		ac.wRoom = true;
 
 		ac.b[farmX][farmY].doClick();
 		return ac.players[0].getWood();
@@ -372,7 +372,7 @@ public class MyFixture extends ColumnFixture {
 		ac.players[0].wood = playerWood;
 		ac.players[0].reed = playerReed;
 		ac.update(false);
-		ac.b_room.doClick();
+		ac.wRoom = true;
 
 		ac.b[farmX][farmY].doClick();
 		return ac.players[0].getReed();
@@ -385,8 +385,8 @@ public class MyFixture extends ColumnFixture {
 		ac.players[0].wood = playerWood;
 		ac.update(false);
 		if (stableCost == 1)
-			ac.b_stable.doClick();
-		else ac.b_room.doClick();
+			ac.wStableRoom = true;
+		else ac.wStable = true;
 
 		ac.b[farmX][farmY].doClick();
 		return ac.farm[0][farmX][farmY].getType();
@@ -398,8 +398,8 @@ public class MyFixture extends ColumnFixture {
 		ac.players[0].wood = playerWood;
 		ac.update(false);
 		if (stableCost == 1)
-			ac.b_stable.doClick();
-		else ac.b_room.doClick();
+			ac.wStableRoom = true;
+		else ac.wStable = true;
 
 		ac.b[farmX][farmY].doClick();
 		return ac.players[0].getWood();
@@ -493,7 +493,6 @@ public class MyFixture extends ColumnFixture {
 	
 		return ac.players[0].getScore();
 	}
-	
 	
 	// r-017
 	public int getPlayersClayAfterBuildingFireplaces() {

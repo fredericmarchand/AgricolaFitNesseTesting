@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<testResults>
+  <FitNesseVersion>v20130530</FitNesseVersion>
+  <rootPath>TestReq013</rootPath>
+    <result>
+    <counts>
+      <right>8</right>
+      <wrong>0</wrong>
+      <ignores>0</ignores>
+      <exceptions>0</exceptions>
+    </counts>
+    <runTimeInMillis>2</runTimeInMillis>
+    <content>&lt;div class="toc1"&gt;
+	&lt;div class="contents"&gt;
+		&lt;b&gt;Contents:&lt;/b&gt;
+		&lt;ul/&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;div class="collapsible invisible"&gt;&lt;ul&gt;&lt;li&gt;&lt;a href='#' class='expandall'&gt;Expand All&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href='#' class='collapseall'&gt;Collapse All&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+	&lt;p class="title"&gt;Hidden&lt;/p&gt;
+	&lt;div&gt;&lt;span class="meta"&gt;classpath: bin&lt;/span&gt;&lt;br/&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;h2&gt;Test to ensure that stables are paid for at the right cost.&lt;/h2&gt;
+&lt;br/&gt;&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td colspan="6"&gt;fixtures.MyFixture&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;farmX&lt;/td&gt;
+		&lt;td&gt;farmY&lt;/td&gt;
+		&lt;td&gt;playerWood&lt;/td&gt;
+		&lt;td&gt;stableCost&lt;/td&gt;
+		&lt;td&gt;playerBuildStableCheckRemainingWood()&lt;/td&gt;
+		&lt;td&gt;playerBuildStableCheck()&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;3&lt;/td&gt;
+		&lt;td&gt;5&lt;/td&gt;
+		&lt;td&gt;1&lt;/td&gt;
+		&lt;td&gt;1&lt;/td&gt;
+		&lt;td class="pass"&gt;0&lt;/td&gt;
+		&lt;td class="pass"&gt;s&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;3&lt;/td&gt;
+		&lt;td&gt;5&lt;/td&gt;
+		&lt;td&gt;2&lt;/td&gt;
+		&lt;td&gt;2&lt;/td&gt;
+		&lt;td class="pass"&gt;0&lt;/td&gt;
+		&lt;td class="pass"&gt;s&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;3&lt;/td&gt;
+		&lt;td&gt;5&lt;/td&gt;
+		&lt;td&gt;3&lt;/td&gt;
+		&lt;td&gt;1&lt;/td&gt;
+		&lt;td class="pass"&gt;2&lt;/td&gt;
+		&lt;td class="pass"&gt;s&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;3&lt;/td&gt;
+		&lt;td&gt;5&lt;/td&gt;
+		&lt;td&gt;0&lt;/td&gt;
+		&lt;td&gt;1&lt;/td&gt;
+		&lt;td class="pass"&gt;0&lt;/td&gt;
+		&lt;td class="pass"&gt;e&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+</content>
+    <relativePageName>TestReq013</relativePageName>
+    
+    
+    
+  </result>
+  
+    <finalCounts>
+    <right>0</right>
+    <wrong>0</wrong>
+    <ignores>0</ignores>
+    <exceptions>0</exceptions>
+  </finalCounts>
+  <totalRunTimeInMillis>0</totalRunTimeInMillis>
+  
+</testResults>
+
